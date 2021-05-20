@@ -59,7 +59,7 @@ func process(conn net.Conn) {
 	saveFile(datasave)
 	
 	dataread := []byte("")
-	readFile(dataread)
+	readFile(&dataread)
 	
 	if _, err := conn.Write(dataread); err != nil {
 		fmt.Printf("Connection error: %s\n", err)
@@ -79,7 +79,7 @@ func startClient(addr string) {
 		}
 }
 
-func readFile(dataread []byte) {
+func readFile(dataread *[]byte) {
 
 	file, err := os.Open("output.txt")
 	if err != nil {
@@ -87,7 +87,7 @@ func readFile(dataread []byte) {
 		os.Exit(1)
 	}
 	for {
-		n, err := file.Read(dataread)
+		n, err := file.Read(*dataread)
 		if err != nil && err != io.EOF {
 			panic(err)
 		}
