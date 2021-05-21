@@ -18,7 +18,7 @@ class Collider :public Component {
 private:
 	std::list<sf::ConvexShape> collisionModel;
 public:
-	void isCollide(Collider* one);
+	bool isCollide(Collider* one);
 	void resolutionCollision(Collider* one);
 };
 
