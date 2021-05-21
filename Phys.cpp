@@ -24,11 +24,15 @@ bool isCollide(sf::ConvexShape collisionModel1, sf::ConvexShape collisionModel2)
     return false;
 }
 
-void resolutionCollision(Collider* one)
+void resolutionCollision(Collider* one, Collider* two)
 {
-
+    int buffer1 = one->getObject()->getComponent<Physics>()->velocity.x;
+    int buffer2 = one->getObject()->getComponent<Physics>()->velocity.y;
+    one->getObject()->getComponent<Physics>()->velocity.x = two->getObject()->getComponent<Physics>()->velocity.x;
+    one->getObject()->getComponent<Physics>()->velocity.y = two->getObject()->getComponent<Physics>()->velocity.y;
+    two->getObject()->getComponent<Physics>()->velocity.x = buffer1;
+    two->getObject()->getComponent<Physics>()->velocity.y = buffer2;
 }
-
 
 
 void PhysicsManager::update()
