@@ -35,6 +35,7 @@ void resolutionCollision(Collider* one, Collider* two)
 }
 
 
+
 void PhysicsManager::update()
 {
     for (std::list<GameObject*>::iterator it = physicsStorage.begin(); it != physicsStorage.end(); ++it)
@@ -43,12 +44,13 @@ void PhysicsManager::update()
     }
 }
 
-void PhysicsManager::addPhisics(GameObject* physicsParent)
+void PhysicsManager::addPhys(GameObject* physicsParent)
 {
     physicsStorage.push_front(physicsParent);
 }
 
-void PhysicsManager::removePhysics(GameObject* physicsParent)
+void PhysicsManager::removePhys(GameObject* physicsParent)
 {
     physicsStorage.remove(physicsParent);
 }
+
