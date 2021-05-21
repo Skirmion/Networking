@@ -9,8 +9,8 @@
 class Physics : public Component
 {
 	float m = 0;
-	sf::Vector2f position = sf::Vector2f(0, 0);
-	sf::Vector2f velocity = { 0,0 };
+	sf::Vector2f position = {0, 0};
+	sf::Vector2f velocity = {0, 0};
 	sf::Vector2f boost = {0, 0};
 };
 
