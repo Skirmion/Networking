@@ -5,7 +5,7 @@
 #include "GameObj.hpp"
 #include "Phys.hpp"
 
-void isCollide(Collider* one)
+bool isCollide(Collider* one)
 {
 
 }
