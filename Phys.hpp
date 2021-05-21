@@ -1,6 +1,3 @@
-#ifndef Physics_HPP
-#define Physics_HPP
-
 #include <list>
 #include <string>
 #include "Component.hpp"
@@ -9,8 +6,8 @@
 class Physics : public Component
 {
 	float m = 0;
-	sf::Vector2f position = {0, 0};
-	sf::Vector2f velocity = {0, 0};
+	sf::Vector2f position = sf::Vector2f(0, 0);
+	sf::Vector2f velocity = { 0,0 };
 	sf::Vector2f boost = {0, 0};
 };
 
@@ -18,8 +15,8 @@ class Collider :public Component {
 private:
 	std::list<sf::ConvexShape> collisionModel;
 public:
-	bool isCollide(Collider* one);
-	void resolutionCollision(Collider* one);
+	bool isCollide(Collider*);
+	void resolutionCollision(Collider*);
 };
 
 
@@ -28,8 +25,8 @@ private:
 	std::list<Physics*> physcomponent;
 public:
 	void update();
-	void addPhys(Component* col);
-	void removePhys(Component* col);
+	void addPhys(GameObject*);
+	void removePhys(GameObject*);
 };
 
 
